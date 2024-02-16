@@ -13,8 +13,39 @@ for(const card of cards){
     const price = parseFloat(cardPrice.split(' ')[1])
     totalPrice += price;
 
-    document.getElementById('totalPrice').innerText = totalPrice;
+    // document.getElementById('totalPrice').innerText = totalPrice;
+    setInnerText('totalPrice', totalPrice.toFixed(2))
 
     count++
     })
+}
+
+const applyFild = document.getElementById('apply-btn');
+const discountFild = document.getElementById('input-field');
+// const discountpreice = document.getElementById('discountPrice');
+
+applyFild.addEventListener('click', function(){
+
+    if(discountFild.value == 'SELL200'){
+        if(totalPrice >= 200){
+            const discount = totalPrice * 0.2;
+            setInnerText('discountPrice', discount.toFixed(2))
+            const total = totalPrice - discount;
+            setInnerText('total', total.toFixed(2))
+        }
+        else{
+        alert('Buy above 200$ for discount')
+        }
+    }
+    else{
+        // setInnerText('total', totalPrice)
+        alert('Enter a valid coupon')
+    }
+})
+
+
+// set inner Teext 
+function setInnerText(id, value){
+    const result = document.getElementById(id).innerText = value;
+    return result;
 }
