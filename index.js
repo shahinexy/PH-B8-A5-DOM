@@ -32,6 +32,7 @@ applyFild.addEventListener('click', function(){
             setInnerText('discountPrice', discount.toFixed(2))
             const total = totalPrice - discount;
             setInnerText('total', total.toFixed(2))
+            discountFild.value = '';
         }
         else{
         alert('Buy above 200$ for discount')
@@ -48,4 +49,13 @@ applyFild.addEventListener('click', function(){
 function setInnerText(id, value){
     const result = document.getElementById(id).innerText = value;
     return result;
+}
+
+function confirmPurchase(){
+    if(totalPrice > 0){
+        showModal()
+    }
+    else{
+        alert('Select some item')
+    }
 }

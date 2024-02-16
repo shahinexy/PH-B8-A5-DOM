@@ -214,9 +214,18 @@
                 Total: $<span id="total"></span>
               </p>
               <hr class="my-4" />
-              <button class="btn btn-wide bg-[#F11A7B] text-white">
-                Make Purchase
-              </button>
+              <!-- pop up  -->
+              <!-- Open the modal using ID.showModal() method -->
+              <button class="btn w-full bg-[#F11A7B] text-white hover:text-black text-xl" onclick="my_modal_2.showModal()">Purchase</button>
+              <dialog id="my_modal_2" class="modal">
+                <div class="modal-box text-center">
+                  <h3 class="font-bold text-lg">Congratulation!</h3>
+                  <p class="py-4">Purchase Successful</p>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
             </div>
           </div>
         </div>
